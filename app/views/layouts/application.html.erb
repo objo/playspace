@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Playspace</title>
+    <title>PlaySpace</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,24 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "PlaySpace", root_path, class: 'navbar-brand' %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Create an Account", root_path %></li>
+          <li><%= link_to "Sign In", "#" %></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p>some text here</p>
+      </div>
+    </footer>
   </body>
 </html>
