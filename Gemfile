@@ -23,6 +23,8 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
+gem 'devise-bootstrap-views'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri

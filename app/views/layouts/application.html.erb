@@ -14,13 +14,20 @@
         <div class="navbar-header">
           <%= link_to "PlaySpace", root_path, class: 'navbar-brand' %>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Create an Account", root_path %></li>
-          <li><%= link_to "Sign In", "#" %></li>
+        <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
+          <% if current_user %>
+            <li><%= link_to "Account", "#" %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_url, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Create an Account", new_user_registration_url %></li>
+            <li><%= link_to "Sign In", new_user_session_url %></li>
+          <% end %>
         </ul>
       </div>
     </nav>
     <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
     <footer class="footer">
