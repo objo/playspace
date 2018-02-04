@@ -16,31 +16,46 @@
               <%= image_tag("playspace-logo.png", height: '100px', class: 'navbar-brand')%>
             </div>
             <div class="col-md-8 hidden-xs">
-              <h1>hide</h1>
             </div>
-            <div class="col-md-1 col-xs-12">
-              <%= link_to "Join Us", new_user_registration_url, class: 'btn yellow-btn bold-btn navb-button' %>
-            </div>
-            <div class="col-md-1 col-xs-12">
-              <%= link_to "Sign In", new_user_session_url, class: 'btn yellow-btn bold-btn navb-button' %>
-            </div>
+            <% if current_user %>
+              <div class="col-md-1 col-xs-12">
+                <%= link_to "Account", "#", class: 'btn yellow-btn bold-btn navb-button' %>
+              </div>
+              <div class="col-md-1 col-xs-12">
+                <%= link_to "Sign Out", destroy_user_session_url, method: :delete, class: 'btn yellow-btn bold-btn navb-button' %>
+              </div>
+            <% else %>
+              <div class="col-md-1 col-xs-12">
+                <%= link_to "Join Us", new_user_registration_url, class: 'btn yellow-btn bold-btn navb-button' %>
+              </div>
+              <div class="col-md-1 col-xs-12">
+                <%= link_to "Sign In", new_user_session_url, class: 'btn yellow-btn bold-btn navb-button' %>
+              </div>
+            <% end %>
           </div>
       </div>
-<!--        <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
-          <% if current_user %>
-            <li><%= link_to "Account", "#", class: 'btn yellow-btn bold-btn' %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_url, method: :delete, class: 'btn yellow-btn bold-btn' %></li>
-          <% else %>
-            <li><%= link_to "Join Us", new_user_registration_url, class: 'btn yellow-btn bold-btn' %></li>
-            <li><%= link_to "Sign In", new_user_session_url, class: 'btn yellow-btn bold-btn' %></li>
-          <% end %>
-        </ul>
-      </div>
--->
     </nav>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice.present? %>
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            Notice
+          </div>
+          <div class="panel-body">
+            <%= notice %>
+          </div>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            Notice
+          </div>
+          <div class="panel-body">
+            <%= alert %>
+          </div>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
     <footer class="footer">
