@@ -11,10 +11,22 @@
   <body>
     <nav class="navbar navbar-custom">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <%= image_tag("playspace-logo.png", height: '100px', class: 'navbar-brand')%>
-        </div>
-        <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
+          <div class="row">
+            <div class="col-md-2 col-xs-12">
+              <%= image_tag("playspace-logo.png", height: '100px', class: 'navbar-brand')%>
+            </div>
+            <div class="col-md-8 hidden-xs">
+              <h1>hide</h1>
+            </div>
+            <div class="col-md-1 col-xs-12">
+              <%= link_to "Join Us", new_user_registration_url, class: 'btn yellow-btn bold-btn navb-button' %>
+            </div>
+            <div class="col-md-1 col-xs-12">
+              <%= link_to "Sign In", new_user_session_url, class: 'btn yellow-btn bold-btn navb-button' %>
+            </div>
+          </div>
+      </div>
+<!--        <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
           <% if current_user %>
             <li><%= link_to "Account", "#", class: 'btn yellow-btn bold-btn' %></li>
             <li><%= link_to "Sign Out", destroy_user_session_url, method: :delete, class: 'btn yellow-btn bold-btn' %></li>
@@ -24,6 +36,7 @@
           <% end %>
         </ul>
       </div>
+-->
     </nav>
     <div class="container">
       <p class="notice"><%= notice %></p>
