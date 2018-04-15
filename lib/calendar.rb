@@ -5,7 +5,7 @@ class Calendar < Struct.new(:view, :date, :callback)
     delegate :content_tag, to: :view
 
     def table
-      content_tag :table, class: "calendar table table-bordered table-striped" do
+      content_tag :table, class: "calendar table table-bordered" do
         header + week_rows
       end
     end
@@ -29,7 +29,7 @@ class Calendar < Struct.new(:view, :date, :callback)
     end
 
     def day_classes(day)
-      classes = []
+      classes = ['day']
       classes << "today" if day == Date.today
       classes << "not-month" if day.month != date.month
       classes.empty? ? nil : classes.join(" ")
