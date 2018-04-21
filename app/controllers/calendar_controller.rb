@@ -1,3 +1,5 @@
+require 'lib/calendar'
+
 class CalendarController < ApplicationController
   def show
     @events_by_date = Event.all.group_by(&:date)
