@@ -9,6 +9,18 @@
     <%= form.text_field :date, data:{ provide:'datepicker' } %>
   </div>
 
+  <% friends = Array.new(9) { ['boy','girl'].sample + '-' + rand(1...22).to_s + '.png' } %>
+
+  <%= form.label "Invite your friends" %>
+  <div class="friends">
+    <% friends.each do |friend|  %>
+      <%= image_tag friend, height: '100px' %>
+    <% end %>
+  </div>
+
+  <br />
+  <br />
+
   <div class="">
     <%= form.submit "Create Event!", class: 'btn btn-primary' %>
   </div>

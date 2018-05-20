@@ -1,0 +1,38 @@
+<div class="form-group">
+  <%= f.label :username %>
+  <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+</div>
+
+<%= f.hidden_field :avatar %>
+<%= f.label "Choose your avatar" %>
+<div class="avatar-chooser">
+  <% 21.times do |number| %>
+    <%= image_tag "boy-#{number + 1}.png", class: "avatar-choice", id: "boy-#{number + 1}" %>
+  <% end %>
+  <% 25.times do |number| %>
+    <%= image_tag "girl-#{number + 1}.png", class: "avatar-choice", id: "girl-#{number + 1}" %>
+  <% end %>
+</div>
+
+<script>
+  $('#' + $('#user_avatar').val()).addClass('active-avatar')
+  $('.avatar-choice').click(function() {
+    $('.active-avatar').removeClass('active-avatar')
+    $('#user_avatar').val(this.id)
+    $('#' + this.id).addClass('active-avatar')
+  });
+</script>
+
+<%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
