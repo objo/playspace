@@ -1,7 +1,7 @@
 User.destroy_all
 
 def avatar
-  ['girl', 'boy'].sample + '-' + (rand(22) + 1).to_s + '.png'
+  'girl-' + (rand(25) + 1).to_s + '.png'
 end
 
 natalie = User.create!(
