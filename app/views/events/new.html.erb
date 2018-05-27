@@ -11,8 +11,8 @@
 
   <%= form.label "Invite your friends" %>
   <div class="friends">
-    <% @friends.each do |friend|  %>
-      <div class="friend">
+    <% @friends.each_with_index do |friend, index|  %>
+      <div class="friend" id="friend-<%= index %>">
         <%= image_tag friend.avatar , height: '100px', alt: friend.username %>
         <p><%= friend.username %></p>
       </div>
@@ -31,9 +31,12 @@
 <% end %>
 
 
-
 <script>
   $( function() {
     $( "#event_date" ).datepicker();
   } );
+
+  $('.friend').click(function() {
+    $('#' + this.id).toggleClass('invite-friend')
+  });
 </script>

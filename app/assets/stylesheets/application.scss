@@ -120,7 +120,17 @@
 
 .friend {
   float: left;
-  padding-left: 20px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  border: 2px solid #ff6600;
+}
+
+.friend:hover {
+  border: 2px solid red;
+}
+
+.invite-friend {
+  border: 2px solid red;
 }
 
 .friend p {
