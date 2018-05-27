@@ -14,11 +14,13 @@ natalie = User.create!(
   password_confirmation:  '12345678'
 )
 
-10.times do
+names = ['bree', 'josie', 'kendall', 'ari', 'ella', 'ann.marie', 'ava', 'catie', 'megan', 'lilly']
+
+10.times do |i|
   u = User.create!(
     first_name: Faker::Name.first_name,
     last_name:  Faker::Name.last_name,
-    username:  Faker::Internet.user_name,
+    username:  names[i],
     email:      Faker::Internet.email,
     avatar:     avatar,
     password:   '12345678',
