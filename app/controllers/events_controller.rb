@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def new
     @event = Event.new
+    @friends = current_user.active_relationships.map { |r| r.followed }
   end
 
   def create

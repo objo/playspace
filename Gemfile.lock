@@ -74,6 +74,8 @@ GEM
     devise-bootstrap-views (0.0.11)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
@@ -210,6 +212,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-bootstrap-views
+  faker
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails

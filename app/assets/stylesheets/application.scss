@@ -117,3 +117,16 @@
 .active-avatar {
   border: 2px solid red;
 }
+
+.friend {
+  float: left;
+  padding-left: 20px;
+}
+
+.friend p {
+  text-align: center;
+}
+
+.clearfix {
+  clear: both;
+}
