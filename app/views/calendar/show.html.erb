@@ -21,7 +21,7 @@
       <% if @events_by_date[date.midnight] %>
         <ul>
           <% @events_by_date[date.midnight].each do |event| %>
-            <li><%= link_to event.name, "#" %></li>
+            <li><%= link_to event.name, event_path(event.id) %></li>
           <% end %>
         </ul>
       <% end %>

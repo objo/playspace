@@ -10,39 +10,29 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-custom">
-      <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-2 col-xs-12">
-              <%= image_tag("playspace-logo.png", height: '100px', class: 'navbar-brand')%>
-            </div>
-            <div class="col-md-8 hidden-xs">
-            </div>
-            <% if current_user && current_user.avatar.present?%>
-            <div class="col-md-1 col-xs-12">
-              <%= link_to( image_tag(current_user.avatar, width: '50px'), edit_user_registration_url) %>
-            </div>
-            <div class="col-md-1 col-xs-12">
-              <%= link_to "Sign Out", destroy_user_session_url, method: :delete, class: 'btn yellow-btn bold-btn navb-button' %>
-            </div>
-            <% elsif current_user %>
-              <div class="col-md-1 col-xs-12">
-                <%= link_to "Account", edit_user_registration_url, class: 'btn yellow-btn bold-btn navb-button' %>
-              </div>
-              <div class="col-md-1 col-xs-12">
-                <%= link_to "Sign Out", destroy_user_session_url, method: :delete, class: 'btn yellow-btn bold-btn navb-button' %>
-              </div>
-            <% else %>
-              <div class="col-md-1 col-xs-12">
-                <%= link_to "Join Us", new_user_registration_url, class: 'btn yellow-btn bold-btn navb-button' %>
-              </div>
-              <div class="col-md-1 col-xs-12">
-                <%= link_to "Sign In", new_user_session_url, class: 'btn yellow-btn bold-btn navb-button' %>
-              </div>
-            <% end %>
-          </div>
+
+    <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-custom">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= image_tag 'playspace-logo.png', height: '50px' %></a>
       </div>
-    </nav>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><%= link_to 'Calendar', calendar_path, class: 'btn yellow-btn bold-btn navb-button'  %></li>
+            <li><%= link_to 'Account', edit_user_registration_path, class: 'btn yellow-btn bold-btn navb-button'  %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn yellow-btn bold-btn navb-button' %></li>
+          <% else %>
+            <li><%= link_to 'Create An Account', new_user_registration_path, class: 'btn yellow-btn bold-btn navb-button'  %></li>
+            <li><%= link_to 'Sign In', new_user_session_path, class: 'btn yellow-btn bold-btn navb-button'  %></li>
+          <% end %>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+
     <div class="container">
       <% if notice.present? %>
         <div class="panel panel-success">

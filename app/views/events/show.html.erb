@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="container">
+    <h2><%= @event.name %></h2>
+    <p>on <%= @event.date.strftime("%B %d, %Y") %></p>
+    <% if @event.start_time.present? %>
+      <p>from <%= @event.start_time %></p>
+    <% end %>
+    <% if @event.start_time.present? && @event.end_time.present? %>
+      <p>to <%= @event.end_time %></p>
+    <% end %>
+    <br>
+    <p><%= @event.description %></p>
+    <h3>Friends: </h3>
+    <table>
+      <tr>
+        <th>Friend</th>
+        <th>Parent said yes?</th>
+      </tr>
+      <tr>
+        <td><%= image_tag 'girl-12.png', height: '100px' %></td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><%= image_tag 'girl-1.png', height: '100px' %></td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><%= image_tag 'girl-3.png', height: '100px' %></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><%= image_tag 'girl-4.png', height: '100px' %></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><%= image_tag 'girl-5.png', height: '100px' %></td>
+        <td>No</td>
+      </tr>
+    </table>
+  </div>
+</div>
